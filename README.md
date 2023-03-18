@@ -1,6 +1,6 @@
 # Random_Code_Snippets
 
-## 1
+## 1 Password Encoder
 
         @Autowired
       private UserInfoRepository repository;
@@ -18,7 +18,7 @@
        
        
        
-## 2 
+## 2  Stream 
  
         public Product getProduct(int id) {
         return productList.stream()
