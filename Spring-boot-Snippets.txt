@@ -1,0 +1,94 @@
+
+running from terminal  JAR
+
+1
+
+public class DataProcessingApp {
+
+    public static void main(String[] args) {
+        if (args.length < 1) {
+            System.out.println("Please provide the file path as a command-line argument.");
+            return;
+        }
+
+        String filePath = args[0]; // Get the file path from command-line argument
+
+        // Call the method that processes the .data file
+        processFile(filePath);
+    }
+
+    private static void processFile(String filePath) {
+        // Your logic to read and process the .data file goes here
+    }
+}
+
+
+
+2
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class YourApplication implements CommandLineRunner {
+
+    public static void main(String[] args) {
+        SpringApplication.run(YourApplication.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        if (args.length < 1) {
+            System.out.println("Please provide the file path as a command-line argument.");
+            return;
+        }
+
+        String filePath = args[0]; // Get the file path from command-line argument
+
+        // Call the method that processes the .data file
+        processFile(filePath);
+    }
+
+    private void processFile(String filePath) {
+        // Your logic to read and process the .data file goes here
+    }
+}
+
+@Override
+public void run(String... args) throws Exception {
+    if (args.length < 2) {
+        System.out.println("Please provide the paths of both files as command-line arguments.");
+        return;
+    }
+
+    String filePath1 = args[0]; // Get the first file path from command-line argument
+    String filePath2 = args[1]; // Get the second file path from command-line argument
+
+    // Call the method that processes the .data files
+    processFiles(filePath1, filePath2);
+}
+
+private void processFiles(String filePath1, String filePath2) {
+    // Your logic to read and process the .data files goes here
+}
+
+java -jar your-application.jar /path/to/your/file.data
+java -jar your-application.jar /path/to/first/file.data /path/to/second/file.data
+
+
+3
+    @SpringBootApplication
+    public class MyApplication {
+        public static void main(String[] args) {
+            for(String arg:args) {
+                System.out.println(arg);
+            }
+            SpringApplication.run(MyApplication.class, args);
+        }
+    }
+    ```
+java -jar myapp.jar --file.name=myfile.txt
+
+
+3
+
