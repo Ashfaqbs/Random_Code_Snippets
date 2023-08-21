@@ -61,3 +61,50 @@
 
 </body>
 </html>
+
+
+//render ornage for dif
+StringBuilder htmlContent = new StringBuilder();
+htmlContent.append("<table>");
+htmlContent.append("<tr>");
+htmlContent.append("<th></th>"); // Empty cell for spacing
+htmlContent.append("<th>Last Week</th>");
+htmlContent.append("<th>This Week</th>");
+htmlContent.append("</tr>");
+
+// Add Total row
+htmlContent.append("<tr>");
+htmlContent.append("<td>Total</td>");
+if (lastWeekTotal > thisWeekTotal) {
+    htmlContent.append("<td style=\"background-color: orange;\">").append(lastWeekTotal).append("</td>");
+} else {
+    htmlContent.append("<td>").append(lastWeekTotal).append("</td>");
+}
+htmlContent.append("<td>").append(thisWeekTotal).append("</td>");
+htmlContent.append("</tr>");
+
+// Add Dental row
+htmlContent.append("<tr>");
+htmlContent.append("<td>Dental</td>");
+if (lastWeekDental > thisWeekDental) {
+    htmlContent.append("<td style=\"background-color: orange;\">").append(lastWeekDental).append("</td>");
+} else {
+    htmlContent.append("<td>").append(lastWeekDental).append("</td>");
+}
+htmlContent.append("<td>").append(thisWeekDental).append("</td>");
+htmlContent.append("</tr>");
+
+// Add Medical row
+htmlContent.append("<tr>");
+htmlContent.append("<td>Medical</td>");
+if (lastWeekMedical > thisWeekMedical) {
+    htmlContent.append("<td style=\"background-color: orange;\">").append(lastWeekMedical).append("</td>");
+} else {
+    htmlContent.append("<td>").append(lastWeekMedical).append("</td>");
+}
+htmlContent.append("<td>").append(thisWeekMedical).append("</td>");
+htmlContent.append("</tr>");
+
+// Close the table
+htmlContent.append("</table>");
+
