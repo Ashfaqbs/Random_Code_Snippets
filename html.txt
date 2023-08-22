@@ -108,3 +108,40 @@ htmlContent.append("</tr>");
 // Close the table
 htmlContent.append("</table>");
 
+//upload side 
+
+<!-- ... -->
+<body>
+    <h2>Upload Old and New Data Files</h2>
+    <!-- ... -->
+    <div th:if="${reportMessage}">
+        <p th:text="${reportMessage}" style="color: green;"></p>
+    </div>
+</body>
+<!-- ... -->
+
+
+
+@PostMapping("/upload")
+public String uploadFiles(@ModelAttribute ReportForm reportForm, Model model) {
+    MultipartFile oldDataFile = reportForm.getOldDataFile();
+    MultipartFile newDataFile = reportForm.getNewDataFile();
+
+    // Perform validation
+    if (oldDataFile == null || newDataFile == null) {
+        model.addAttribute("reportMessage", "Both files are required.");
+        return "report-upload";
+    }
+
+    if (!oldDataFile.getOriginalFilename().endsWith(".data") ||
+        !newDataFile.getOriginalFilename().endsWith(".data")) {
+        model.addAttribute("reportMessage", "Please upload .data files only.");
+        return "report-upload";
+    }
+
+    // Continue with generating the report
+    // ...
+
+    model.addAttribute("reportMessage", "Report generated successfully!");
+    return "report-upload";
+}
